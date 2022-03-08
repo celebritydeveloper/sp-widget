@@ -72,8 +72,9 @@ export const feedblocks = queryFetch(
   async function fetchWidget(query) {
     const res = await fetch(liveURL, {
       method: "POST",
-      mode: "no-cors",
-   
+      headers: {
+        "Content-Type": "application/json"
+      },
       body: JSON.stringify({
         query: query,
       }),
@@ -91,7 +92,9 @@ export const feedblocks = queryFetch(
   async function queryFetch(query) {
     const res = await fetch(liveURL, {
       method: "POST",
-      mode: "no-cors",
+      headers: {
+        "Content-Type": "application/json"
+      },
       body: JSON.stringify({
         query: query,
       }),
@@ -106,8 +109,9 @@ export const feedblocks = queryFetch(
   export async function createFeedback(feedblockId, customerEmail, widgetName, rating, comment) {
     const res = await fetch(liveURL, {
       method: "POST",
-      mode: "no-cors",
-  
+      headers: {
+        "Content-Type": "application/json"
+      },
       body: JSON.stringify({
         query: `mutation {
             createFeedback(payload: {
